@@ -31,7 +31,29 @@ public class Banco {
             System.out.println(menu);
             opcao = leitura.nextInt();
             System.out.println("Você escolheu a opção " + opcao);
-        }
 
+            if (opcao == 1){
+                System.out.println("O seu saldo é R$" + saldo);
+            } else if (opcao == 2) {
+                System.out.println("Qual o valor que deseja transferir?");
+                double valorTransferencia = leitura.nextDouble();
+                if (valorTransferencia > saldo){
+                    System.out.println("Saldo insuficiente.");
+                } else {
+                    saldo -= valorTransferencia;
+                    System.out.println("Novo saldo: R$" + saldo);
+                }
+
+            } else if (opcao == 3){
+                System.out.println("Valor recebido: R$");
+                double valorRecebido = leitura.nextDouble();
+                saldo += valorRecebido;
+                System.out.println("Seu novo saldo é: R$" + saldo);
+            } else if (opcao != 4) {
+                System.out.println("Operação inválida!");
+            } else {
+                System.out.println("Obrigado por utilizar nosso serviço!");
+            }
+        }
     }
 }
